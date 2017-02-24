@@ -1,3 +1,5 @@
 .vscode
 creating-websites-using-flask.md
 bluemix-starter/
+*.pyc
+todo.py
