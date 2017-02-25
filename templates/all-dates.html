@@ -6,7 +6,7 @@
     <h3>Available Dates</h3>
     
         {% for date in dates %}
-            <p>{{ date }}</p>
+            <p><a href="{{ url_for('by_date', day_to_pull=date) }}">{{ date }}</a></p>
         {% endfor %}
 
 {% endblock %}

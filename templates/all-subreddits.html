@@ -6,7 +6,7 @@
     <h3>Available Sub-Reddits</h3>
     
         {% for sub in subs %}
-            <p>{{ sub }}</p>
+            <p><a href="{{ url_for('by_subreddit', sub_to_pull=sub) }}">{{ sub }}</a></p>
         {% endfor %}
 
 {% endblock %}

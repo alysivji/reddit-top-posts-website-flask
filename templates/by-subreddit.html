@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h3>Selected Sub-Reddit: {{ sub }}</h3>
+
+    {% for date in Post.objects(sub=sub).fields(date_str=1).distinct('date_str') %}
+        <h3>{{ date }}</h3>
+
+        <ul id="posts">
+            {% for post in Post.objects(date_str=date, sub=sub).order_by('-date_str') %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a> (Score: {{ post.score }} | <a href=" {{ post.commentsUrl }}">Comments</a>)</li>
+            {% endfor %}
+        </ul>
+
+    {% endfor %}
+{% endblock %}

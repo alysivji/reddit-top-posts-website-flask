@@ -30,26 +30,44 @@ def index():
 
 
 @app.route("/date")
-def by_date():
+def all_dates():
     ## get all the dates the scraper was run on
     dates = Post.objects().fields(date_str=1).distinct('date_str')
 
     return render_template(
-        'by-date.html',
+        'all-dates.html',
         dates=reversed(list(dates)) # latest date on top
         )
 
 
+@app.route("/date/<day_to_pull>")
+def by_date(day_to_pull=None):
+    return render_template(
+        'index.html',
+        Post=Post,
+        day_to_pull=day_to_pull
+        )
+
+
 @app.route("/sub")
-def by_sub():
+def all_subs():
     ## get all the dates the scraper was run on
     subs = Post.objects().fields(sub=1).distinct('sub')
 
-    print (subs)
-
     return render_template(
-        'by-sub.html',
+        'all-subreddits.html',
         subs=sorted(list(subs), key=str.lower) # sort list of subreddits
+        )
+
+
+@app.route("/sub/<sub_to_pull>")
+def by_subreddit(sub_to_pull=None):
+    print (sub_to_pull)
+    # Post.objects(sub=sub)
+    return render_template(
+        'by-subreddit.html',
+        Post=Post,
+        sub=sub_to_pull
         )
 
 
