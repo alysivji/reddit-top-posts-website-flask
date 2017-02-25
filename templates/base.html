@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{% block title %} {% endblock %} - Reddit Top Posts</title>
+        <title>Reddit Top Posts - {% block title %} {% endblock %}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,7 +19,7 @@
                 <h1 class="title">Reddit Top Posts</h1>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="#">Log In</a></li>
                         <li><a href="#">Sign Up</a></li>
                     </ul>
@@ -38,7 +38,9 @@
 
                 <aside>
                     {% block aside %}
+                        <h3><a href="{{ url_for('by_date') }}">Select by Date</a></h3>
 
+                        <h3><a href="{{ url_for('by_sub') }}">Select by Subreddit</a></h3>
                     {% endblock %}
                 </aside>
 

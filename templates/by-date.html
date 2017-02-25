@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}By Date{% endblock %}
+
+{% block content %}
+    <h3>Available Dates</h3>
+    
+        {% for date in dates %}
+            <p>{{ date }}</p>
+        {% endfor %}
+
+{% endblock %}

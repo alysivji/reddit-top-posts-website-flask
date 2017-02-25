@@ -25,7 +25,33 @@ def index():
     return render_template(
         'index.html',
         Post=Post,
-        day_to_pull=day_to_pull)
+        day_to_pull=day_to_pull
+        )
+
+
+@app.route("/date")
+def by_date():
+    ## get all the dates the scraper was run on
+    dates = Post.objects().fields(date_str=1).distinct('date_str')
+
+    return render_template(
+        'by-date.html',
+        dates=reversed(list(dates)) # latest date on top
+        )
+
+
+@app.route("/sub")
+def by_sub():
+    ## get all the dates the scraper was run on
+    subs = Post.objects().fields(sub=1).distinct('sub')
+
+    print (subs)
+
+    return render_template(
+        'by-sub.html',
+        subs=sorted(list(subs), key=str.lower) # sort list of subreddits
+        )
+
 
 if __name__ == "__main__":
     app.run()
