@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}By Date{% endblock %}
+
+{% block content %}
+    <h3>Available Dates</h3>
+    
+        {% for date in dates %}
+            <p><a href="{{ url_for('by_date', day_to_pull=date) }}">{{ date }}</a></p>
+        {% endfor %}
+
+{% endblock %}
