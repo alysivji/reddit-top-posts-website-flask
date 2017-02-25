@@ -8,6 +8,7 @@ class Post(db.Document):
     '''
     url = db.URLField(required=True)
     date = db.DateTimeField(required=True)
+    date_str = db.StringField(max_length=10, required=True)
     commentsUrl = db.URLField(required=True)
     sub = db.StringField(max_length=20, required=True) # subredit can be 20 chars
     title = db.StringField(max_length=300, required=True) # title can be 300 chars

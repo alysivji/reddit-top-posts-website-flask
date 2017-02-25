@@ -19,10 +19,8 @@ db.init_app(app)
 @app.route("/")
 def index():
     ## get the last date the webscraper was run
-    for post in Post.objects().fields(date=1).order_by('-date').limit(1):
-        day_to_pull = post.date.date()
-
-    print (type(day_to_pull))
+    for post in Post.objects().fields(date_str=1).order_by('-date_str').limit(1):
+        day_to_pull = post.date_str
 
     return render_template(
         'index.html',
