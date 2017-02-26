@@ -62,8 +62,6 @@ def all_subs():
 
 @app.route("/sub/<sub_to_pull>")
 def by_subreddit(sub_to_pull=None):
-    print (sub_to_pull)
-    # Post.objects(sub=sub)
     return render_template(
         'by-subreddit.html',
         Post=Post,
