@@ -3,14 +3,14 @@
 class Config(object):
     MONGODB_HOST = 'mongodb://localhost:27017/sivji-sandbox'
     DEBUG = False
-    TESTING = True
+    TESTING = False
 
 class ProductionConfig(Config):
     MONGODB_HOST = 'mongodb://localhost:27017/sivji-sandbox'
 
 class DevelopmentConfig(Config):
-    DEBUG = True
     MONGODB_HOST = 'mongodb://localhost:27017/sivji-sandbox'
+    DEBUG = True
 
 class TestingConfig(Config):
     TESTING = True

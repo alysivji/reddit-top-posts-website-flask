@@ -24,14 +24,12 @@ def posts_get_distinct_items(field):
     Returns:
         list of distinct items
     """
-    # pass in as keyword arguments
-    params = {field: 1}
+    params = {field: 1} # pass in as keyword arguments
     return list(Post.objects().fields(**params).distinct(field))
 
 ### VIEWS
 def index():
     day_to_pull = get_last_rundate()
-    print ("Test")
 
     return render_template(
         'index.html',
